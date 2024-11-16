@@ -1,0 +1,19 @@
+{
+  "name": "crud-sql",
+  "version": "1.0.0",
+  "description": "Exploring on how node works with SQL ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thanushvar Sathiyaseelan",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "pg": "^8.13.1"
+  }
+}

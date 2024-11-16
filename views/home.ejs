@@ -1,0 +1,78 @@
+<%- include('partials/header'); %>
+<style>
+.intro {
+  height: 100%;
+}
+</style>
+<body>
+<%- include('partials/navbar'); %>
+    <section class="overflow-hidden hero-wrap js-fullheight">
+            <div></div>
+            <div class="text-white text-center mt-5">
+                <h1 class="text-white">
+                    CRUD APPLICATION - MySQL
+                </h1>
+            </div>
+                <div class="bg-image h-100" style="background-image: url(https://mdbootstrap.com/img/Photos/new-templates/glassmorphism-article/img7.jpg);">
+                  <div class="mask d-flex align-items-center h-100">
+                    <div class="container">
+                      <div class="row justify-content-center">
+                        <div class="col-12">
+                          <div class="card ">
+                            <div class="card-body ">
+                              <div class="table">
+                                  <% if(user){ %> 
+                                <table class="table text-dark mb-0">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">#</th>
+                                      <th scope="col">Title</th>
+                                      <th scope="col">Description</th>
+                                      <th scope="col">Due - Date</th>
+                                      <th scope="col">Status</th>
+                                      <th scope="col" colspan="2">Action</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody class="text-dark">
+                                      <% for(let i = 0; i < results.length; i++) { %>
+                                        <tr>
+                                            <td><%= results[i].id %></td>
+                                            <td><%= results[i].title %></td>
+                                            <td><%= results[i].description %></td>
+                                            <td><%= results[i].due_date %></td>
+                                            <% if(results[i].completed === 1 ) { %>
+                                            <td>Completed</td>
+                                           <% } else {%>
+                                            <td>Due</td>
+                                            <% } %>
+                                            <td colspan="2" class="d-flex justify-content-evenly">
+                                                <form
+                                                method="post"
+                                                action="/update">
+                                                <input type="hidden" name="id" value=<%= results[i].id %> id="">
+                                                    <button class="btn btn-success">
+                                                        Complete
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                                    <% } else { %>
+                                        <div><h1>
+                                            Please login to add your own tasks
+                                        </h1></div>
+
+                                        <% } %>
+
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    </section>
+<%- include('partials/script'); %>
